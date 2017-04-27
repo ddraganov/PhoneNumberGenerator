@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NDesk.Options;
 
 namespace PhoneNumberGenerator
@@ -44,9 +40,7 @@ namespace PhoneNumberGenerator
         {
             OptionSet options = new OptionSet()
             {
-                {
-                    "codes=", "The phone codes to use separated with commas. Empty code is also OK. Duplications are handled", c => _codes = c.Split(',')
-                },
+                {"codes=", "The phone codes to use separated with commas. Empty code is also OK. Duplications are handled", c => _codes = c.Split(',')},
                 {"length=", "The length of the phone number (excluding the code). Min value of 1 Max value of 18", l => _length = Int32.Parse(l)},
                 {"write=", "The path to file where the result will be stored. If skipped the result will be printed", f => _file = f},
                 {"help", "Information about how to use this tool. Using --help will ignore all other params", h => _showHelp = h != null}
